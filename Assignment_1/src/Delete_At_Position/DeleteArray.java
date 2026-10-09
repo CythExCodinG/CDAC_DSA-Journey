@@ -15,5 +15,5 @@ public class DeleteArray {
 		}
 		arr[arr.length-1]=-1;
 	}
-	
+
 }
