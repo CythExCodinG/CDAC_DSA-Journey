@@ -1,35 +1,35 @@
-package com.Queue;
+package com.generic;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class ArrayQueue implements Queue {
-	private int[] queueArray=null;
+public class ArrayQueueNew<T> implements Queue<T> {
+	private T[] queueArray=null;
 	private int front=-1;
 	private int back=-1;
 	
+	@SuppressWarnings("unchecked")
 	@Override
-	public void enQueue() {
+	public void enQueue(T element) {
 		// TODO Auto-generated method stub
 		if(queueArray==null) {
-			queueArray=new int[5];
+			queueArray=(T[])new Object[5];
 		}
 		if(!isFull()) {
-		Scanner scanner=new Scanner(System.in);
-		System.out.println("Enter element to insert into Queue");
-		int element=scanner.nextInt();
+	
 		queueArray[++back]=element;
 		}
 	}
 
 	@Override
-	public int deQueue() {
+	public T deQueue() throws Exception{
 		// TODO Auto-generated method stub
 		if(!isEmpty()) {
-		int removed=++front;
+		T removed=queueArray[++front];
 			return removed;
 		}
-		return -1;
+		System.out.println("Queue is empty");
+		throw new Exception("Queue is empty");
 	}
 
 	@Override
@@ -55,6 +55,8 @@ public class ArrayQueue implements Queue {
 		System.out.print(Arrays.toString(queueArray));
 		System.out.println("<====Back");
 	}
+
+	
 	
 	
 	

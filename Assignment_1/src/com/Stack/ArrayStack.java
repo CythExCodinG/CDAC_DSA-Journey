@@ -37,7 +37,7 @@ public class ArrayStack implements Stack{
 			}
 			stackArray=arr;
 		}
-		System.out.println("Enter element to push");
+		System.out.println("Enter element to push into stack :");
 		int element=scanner.nextInt();
 		stackArray[++top]=element;
 		count++;
